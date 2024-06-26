@@ -72,7 +72,7 @@ namespace RPS
                 Console.WriteLine($"{ai.Name} wins this round!");
                 ai.Score++;
             }
-            else if (result == 10)
+            else if(result==10)
             {
                 Console.WriteLine("you chose end this game!");
                 ai.Score = 3;
@@ -105,7 +105,7 @@ namespace RPS
 
         public int CompareMoves(string playerMove, string aiMove)
         {
-            if (playerMove == "end")
+            if (playerMove =="end")
                 return 10;
             if (playerMove == aiMove) return 0;
 
