@@ -12,7 +12,7 @@ namespace RPS
         private Player ai;
         private Random random;
         private bool isHardMode;
-        
+
 
         public RPSGame()
         {
@@ -23,7 +23,7 @@ namespace RPS
 
             Console.WriteLine("Choose difficulty: \n1. Normal \n2. Hard (AI Cheat Mode)");
 
-            string choice="";
+            string choice = "";
 
             try
             {
@@ -32,7 +32,7 @@ namespace RPS
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
-                
+
             }
 
             if (choice == "2")
@@ -49,7 +49,7 @@ namespace RPS
                 PlayRound();
                 DisplayScores();
                 round++;
-                
+
             }
             DeclareWinner();
         }
@@ -71,6 +71,11 @@ namespace RPS
             {
                 Console.WriteLine($"{ai.Name} wins this round!");
                 ai.Score++;
+            }
+            else if (result == 10)
+            {
+                Console.WriteLine("you chose end this game!");
+                ai.Score = 3;
             }
             else
             {
@@ -100,6 +105,8 @@ namespace RPS
 
         public int CompareMoves(string playerMove, string aiMove)
         {
+            if (playerMove == "end")
+                return 10;
             if (playerMove == aiMove) return 0;
 
             if ((playerMove == "rock" && aiMove == "scissors") ||
@@ -121,6 +128,7 @@ namespace RPS
 
         private void DeclareWinner()
         {
+            Thread.Sleep(3000);
             Console.Clear();
             if (player.Score > ai.Score)
             {
