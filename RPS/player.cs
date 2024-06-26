@@ -23,7 +23,10 @@ namespace RPS
                 string move = "";
                 while (true)
                 {
-                    move = Console.ReadLine().ToLower();
+                Console.WriteLine($"{Name}, choose your move (r forrock, p for paper, s for scissors , e for end): ");
+                move = Console.ReadLine().ToLower();
+
+                if(move =="r")
                 {
                     move = "rock";
                     break;
