@@ -10,12 +10,12 @@ namespace RPS.Tests
             // Arrange
             Player player = new Player("TestPlayer");
             string[] validInputs = { "r", "p", "s" };
-
+           
             foreach (string input in validInputs)
             {
                 using (var consoleOutput = new ConsoleOutput())
                 {
-                    // Act
+            // Act
                     consoleOutput.Enter(input);
                     string move = player.ChooseMove();
 
@@ -30,7 +30,7 @@ namespace RPS.Tests
                 consoleOutput.Enter("invalid input", "r");
                 string move = player.ChooseMove();
 
-                // Assert
+            // Assert
                 Assert.Equal("rock", move);
             }
         }
