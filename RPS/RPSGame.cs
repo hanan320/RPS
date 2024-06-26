@@ -72,6 +72,11 @@ namespace RPS
                 Console.WriteLine($"{ai.Name} wins this round!");
                 ai.Score++;
             }
+            else if(result==10)
+            {
+                Console.WriteLine("you chose end this game!");
+                ai.Score = 3;
+            }
             else
             {
                 Console.WriteLine("This round is a draw!");
@@ -100,6 +105,8 @@ namespace RPS
 
         public int CompareMoves(string playerMove, string aiMove)
         {
+            if (playerMove =="end")
+                return 10;
             if (playerMove == aiMove) return 0;
 
             if ((playerMove == "rock" && aiMove == "scissors") ||
@@ -121,6 +128,7 @@ namespace RPS
 
         private void DeclareWinner()
         {
+            Thread.Sleep(3000);
             Console.Clear();
             if (player.Score > ai.Score)
             {
