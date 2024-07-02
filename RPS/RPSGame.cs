@@ -37,11 +37,6 @@ namespace RPS
 
             if (choice == "2")
                 isHardMode = true;
-        }
-
-        public void PlayGame()
-        {
-            Console.Clear();
             int round = 1;
             while (player.Score < 3 && ai.Score < 3)
             {

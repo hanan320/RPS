@@ -35,32 +35,5 @@ namespace RPS.Tests
             }
         }
 
-        // Helper class to mock Console.ReadLine() for testing purposes
-        private class ConsoleOutput : IDisposable
-        {
-            private readonly StringWriter stringWriter;
-            private readonly TextWriter originalOutput;
-
-            public ConsoleOutput()
-            {
-                stringWriter = new StringWriter();
-                originalOutput = Console.Out;
-                Console.SetOut(stringWriter);
-            }
-
-            public void Enter(params string[] input)
-            {
-                foreach (var line in input)
-                {
-                    Console.SetIn(new StringReader(line + Environment.NewLine));
-                }
-            }
-
-            public void Dispose()
-            {
-                Console.SetOut(originalOutput);
-                stringWriter.Dispose();
-            }
-        }
     }
 }
